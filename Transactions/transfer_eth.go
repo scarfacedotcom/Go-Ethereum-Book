@@ -13,13 +13,13 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main() {
-	client, err := ethclient.Dial("https://rinkeby.infura.io")
+func main4() {
+	client, err := ethclient.Dial("/tmp/geth.ipc")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	privateKey, err := crypto.HexToECDSA("fad9c8855b740a0b7ed4c221dbad0f33a83a49cad6b3fe8d5817ac83d38b6a19")
+	privateKey, err := crypto.HexToECDSA("b8b5fe1a0419f4ca85d8684ee085469eeb427f2bc45a926b3031415ccca69478")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,14 +36,14 @@ func main() {
 		log.Fatal(err)
 	}
 
-	value := big.NewInt(1000000000000000000) // in wei (1 eth)
-	gasLimit := uint64(21000)                // in units
+	value := big.NewInt(100000000000000000) // in wei (1 eth)
+	gasLimit := uint64(21000)               // in units
 	gasPrice, err := client.SuggestGasPrice(context.Background())
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	toAddress := common.HexToAddress("0x4592d8f8d7b001e72cb26a73e4fa1806a51ac79d")
+	toAddress := common.HexToAddress("0x788bcf8Dc910F436deE33f0ccE5Dddb0eeCE7cB5")
 	var data []byte
 	tx := types.NewTransaction(nonce, toAddress, value, gasLimit, gasPrice, data)
 
