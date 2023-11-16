@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/rlp"
 )
 
-func main() {
+func main6() {
 	client, err := ethclient.Dial("https://rinkeby.infura.io")
 	if err != nil {
 		log.Fatal(err)

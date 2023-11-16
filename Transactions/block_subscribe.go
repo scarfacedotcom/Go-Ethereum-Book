@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main() {
+func main9() {
 	client, err := ethclient.Dial("wss://ropsten.infura.io/ws")
 	if err != nil {
 		log.Fatal(err)
