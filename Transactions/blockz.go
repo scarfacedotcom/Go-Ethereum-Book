@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main() {
+func main1() {
 	client, err := ethclient.Dial("https://cloudflare-eth.com")
 	//client, err := ethclient.Dial("/tmp/geth.ipc")
 	if err != nil {
