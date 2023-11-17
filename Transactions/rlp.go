@@ -11,9 +11,9 @@ type MyStruct struct {
 	Field2 uint64
 }
 
-func main() {
+func main10() {
 	// Encoding data
-	data := MyStruct{"Hello", 42}
+	data := MyStruct{"Scar Face", 42}
 	encodedData, err := rlp.EncodeToBytes(data)
 	if err != nil {
 		fmt.Println("Error encoding:", err)
