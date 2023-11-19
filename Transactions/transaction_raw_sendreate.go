@@ -11,13 +11,13 @@ import (
 	"github.com/ethereum/go-ethereum/rlp"
 )
 
-func main6() {
-	client, err := ethclient.Dial("https://rinkeby.infura.io")
+func main11() {
+	client, err := ethclient.Dial("https://goerli.infura.io/v3/4048b34a30a34c099bd9280862364f8d")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	rawTx := "f86d8202b28477359400825208944592d8f8d7b001e72cb26a73e4fa1806a51ac79d880de0b6b3a7640000802ca05924bde7ef10aa88db9c66dd4f5fb16b46dff2319b9968be983118b57bb50562a001b24b31010004f13d9a26b320845257a6cfc2bf819a3d55e3fc86263c5f0772"
+	rawTx := "f868f866020a825208944592d8f8d7b001e72cb26a73e4fa1806a51ac79d880de0b6b3a7640000802ea0664e67e04852b0304b8cdbdb5df91088aea7a631fb364332a22a47cb4f831f529fc4632ce9049e91449f1abd136d8c39e67b410d651d1c5d28c28f9b4e24d65c"
 
 	rawTxBytes, err := hex.DecodeString(rawTx)
 
