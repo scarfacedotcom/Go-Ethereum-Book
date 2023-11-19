@@ -12,15 +12,16 @@ import (
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
+	"github.com/ethereum/go-ethereum/rlp"
 )
 
-func main5() {
-	client, err := ethclient.Dial("https://rinkeby.infura.io")
+func main() {
+	client, err := ethclient.Dial("https://goerli.infura.io/v3/4048b34a30a34c099bd9280862364f8d")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	privateKey, err := crypto.HexToECDSA("fad9c8855b740a0b7ed4c221dbad0f33a83a49cad6b3fe8d5817ac83d38b6a19")
+	privateKey, err := crypto.HexToECDSA("7d0adcd321bc7dba076e50a117bcd9da6bca2ddaa907bf128f60db43f3802b8d")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -37,8 +38,8 @@ func main5() {
 		log.Fatal(err)
 	}
 
-	value := big.NewInt(1000000000000000000) // in wei (1 eth)
-	gasLimit := uint64(21000)                // in units
+	value := big.NewInt(1000000000000000000)
+	gasLimit := uint64(21000)
 	gasPrice, err := client.SuggestGasPrice(context.Background())
 	if err != nil {
 		log.Fatal(err)
@@ -59,8 +60,14 @@ func main5() {
 	}
 
 	ts := types.Transactions{signedTx}
-	rawTxBytes := ts.GetRlp(0)
+	rawTxBytes, err := rlp.EncodeToBytes(ts)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Convert to Hex String
 	rawTxHex := hex.EncodeToString(rawTxBytes)
 
-	fmt.Printf(rawTxHex) // f86...772
+	fmt.Printf("Raw Transaction Hex: %s\n", rawTxHex)
+
 }

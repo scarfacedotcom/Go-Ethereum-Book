@@ -10,7 +10,7 @@ import (
 )
 
 func main9() {
-	client, err := ethclient.Dial("wss://ropsten.infura.io/ws")
+	client, err := ethclient.Dial("wss://goerli.infura.io/ws/v3/4048b34a30a34c099bd9280862364f8d")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,18 +26,18 @@ func main9() {
 		case err := <-sub.Err():
 			log.Fatal(err)
 		case header := <-headers:
-			fmt.Println(header.Hash().Hex()) // 0xbc10defa8dda384c96a17640d84de5578804945d347072e091b4e5f390ddea7f
+			fmt.Println("The Hash of the New Block Header is: ", header.Hash().Hex())
 
 			block, err := client.BlockByHash(context.Background(), header.Hash())
 			if err != nil {
 				log.Fatal(err)
 			}
-
-			fmt.Println(block.Hash().Hex())        // 0xbc10defa8dda384c96a17640d84de5578804945d347072e091b4e5f390ddea7f
-			fmt.Println(block.Number().Uint64())   // 3477413
-			fmt.Println(block.Time())              // 1529525947
-			fmt.Println(block.Nonce())             // 130524141876765836
-			fmt.Println(len(block.Transactions())) // 7
+			fmt.Println("---------------------- N E W    B L O C K---------------------- ")
+			fmt.Println("The Hash of this block is: ", block.Hash().Hex())
+			fmt.Println("The Block Number is: ", block.Number().Uint64())
+			fmt.Println("The Block Time is: ", block.Time())
+			fmt.Println("The Block Nonce is: ", block.Nonce())
+			fmt.Println("The Number of Transactions in this Block is: ", len(block.Transactions()))
 		}
 	}
 }
