@@ -7,11 +7,12 @@ import (
 	"log"
 	"math/big"
 
+	//store "/home/ubuntu/Desktop/GO/go-etheruem-book/smartContracts" // for demo
+	store "../smartContracts"
+
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
-
-	store "./contracts" // for demo
 )
 
 func main() {
@@ -20,7 +21,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	privateKey, err := crypto.HexToECDSA("fad9c8855b740a0b7ed4c221dbad0f33a83a49cad6b3fe8d5817ac83d38b6a19")
+	privateKey, err := crypto.HexToECDSA("7d0adcd321bc7dba076e50a117bcd9da6bca2ddaa907bf128f60db43f3802b8d")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -43,6 +44,7 @@ func main() {
 	}
 
 	auth := bind.NewKeyedTransactor(privateKey)
+	//auth := bind.NewKeyedTransactorWithChainID(privateKey)
 	auth.Nonce = big.NewInt(int64(nonce))
 	auth.Value = big.NewInt(0)     // in wei
 	auth.GasLimit = uint64(300000) // in units
