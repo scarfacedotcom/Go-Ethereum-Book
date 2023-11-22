@@ -8,9 +8,9 @@ import (
 	"math/big"
 
 	//store "/home/ubuntu/Desktop/GO/go-etheruem-book/smartContracts" // for demo
-	store "../smartContracts"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
+
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 )
@@ -51,7 +51,7 @@ func main() {
 	auth.GasPrice = gasPrice
 
 	input := "1.0"
-	address, tx, instance, err := store.DeployStore(auth, client, input)
+	address, tx, instance, err := store.Store(auth, client, input)
 	if err != nil {
 		log.Fatal(err)
 	}
