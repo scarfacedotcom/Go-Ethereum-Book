@@ -18,6 +18,7 @@ import (
 func main() {
 	client, err := ethclient.Dial("https://goerli.infura.io/v3/4048b34a30a34c099bd9280862364f8d")
 	if err != nil {
+
 		log.Fatal(err)
 	}
 
@@ -51,7 +52,8 @@ func main() {
 	auth.GasPrice = gasPrice
 
 	input := "1.0"
-	address, tx, instance, err := store.Store(auth, client, input)
+	address, tx, instance, err := store.DeployStore(auth, client, input)
+
 	if err != nil {
 		log.Fatal(err)
 	}
