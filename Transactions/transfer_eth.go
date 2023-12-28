@@ -13,7 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main3() {
+func main5() {
 	client, err := ethclient.Dial("https://goerli.infura.io/v3/4048b34a30a34c099bd9280862364f8d")
 	if err != nil {
 		log.Fatal(err)

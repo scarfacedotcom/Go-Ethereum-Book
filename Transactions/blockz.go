@@ -9,7 +9,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main1() {
+func main100() {
 	client, err := ethclient.Dial("https://cloudflare-eth.com")
 	//client, err := ethclient.Dial("/tmp/geth.ipc")
 	if err != nil {
@@ -23,7 +23,7 @@ func main1() {
 
 	fmt.Println("The Latest Block Header is: ", header.Number.String())
 
-	blockNumber := big.NewInt(5677744)
+	blockNumber := big.NewInt(5677724)
 	block, err := client.BlockByNumber(context.Background(), blockNumber)
 	if err != nil {
 		log.Fatal(err)

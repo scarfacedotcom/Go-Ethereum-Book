@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main2() {
+func main1() {
 	client, err := ethclient.Dial("https://cloudflare-eth.com")
 	if err != nil {
 		log.Fatal(err)
