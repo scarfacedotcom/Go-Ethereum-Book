@@ -29,8 +29,8 @@ func main1() {
 		fmt.Println(tx.Gas())               // 105000
 		fmt.Println(tx.GasPrice().Uint64()) // 102000000000
 		fmt.Println(tx.Nonce())             // 110644
-		fmt.Println(tx.Data())              // []
-		fmt.Println(tx.To().Hex())          // 0x55fE59D8Ad77035154dDd0AD0388D09Dd4047A8e
+		//fmt.Println(tx.Data())              // []
+		fmt.Println(tx.To().Hex()) // 0x55fE59D8Ad77035154dDd0AD0388D09Dd4047A8e
 
 		chainID, err := client.NetworkID(context.Background())
 		if err != nil {
