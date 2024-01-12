@@ -8,7 +8,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 )
 
-func main() {
+func main2() {
 	privateKey, err := crypto.HexToECDSA("7d0adcd321bc7dba076e50a117bcd9da6bca2ddaa907bf128f60db43f3802b8d")
 	if err != nil {
 		log.Fatal(err)
