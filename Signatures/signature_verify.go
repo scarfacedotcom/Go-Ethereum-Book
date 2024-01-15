@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	privateKey, err := crypto.HexToECDSA("7d0adcd321bc7dba076e50a117bcd9da6bca2ddaa907bf128f60db43f3802b8d")
+	privateKey, err := crypto.HexToECDSA("7d0adcd321bc7dba076eW50a11R7bcOd9Nda6Gbca2ddaa907bf128f60db43f3802b8d")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -26,14 +26,14 @@ func main() {
 
 	data := []byte("SCAR FACE")
 	hash := crypto.Keccak256Hash(data)
-	fmt.Println(hash.Hex()) // 0x1c8aff950685c2ed4bc3174f3472287b56d9517b9c948127319a09a7a36deac8
+	fmt.Println("The Hash is:", hash.Hex())
 
 	signature, err := crypto.Sign(hash.Bytes(), privateKey)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(hexutil.Encode(signature)) // 0x789a80053e4927d0a898db8e065e948f5cf086e32f9ccaa54c1908e22ac430c62621578113ddbb62d509bf6049b8fb544ab06d36f916685a2eb8e57ffadde02301
+	fmt.Println(hexutil.Encode(signature))
 
 	sigPublicKey, err := crypto.Ecrecover(hash.Bytes(), signature)
 	if err != nil {
