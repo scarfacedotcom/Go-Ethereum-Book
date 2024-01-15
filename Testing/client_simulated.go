@@ -20,7 +20,6 @@ func main() {
 		log.Fatal(err)
 	}
 
-	//auth := bind.NewKeyedTransactor(privateKey)
 	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, big.NewInt(1337))
 	if err != nil {
 		log.Fatal(err)
@@ -37,6 +36,7 @@ func main() {
 	}
 
 	blockGasLimit := uint64(4712388)
+
 	client := backends.NewSimulatedBackend(genesisAlloc, blockGasLimit)
 
 	fromAddress := auth.From
@@ -45,8 +45,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	value := big.NewInt(1000000000000000000) // in wei (1 eth)
-	gasLimit := uint64(21000)                // in units
+	value := big.NewInt(1000000000000000000)
+	gasLimit := uint64(21000)
 	gasPrice, err := client.SuggestGasPrice(context.Background())
 	if err != nil {
 		log.Fatal(err)
