@@ -11,7 +11,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main3() {
+func main() {
 	client, err := ethclient.Dial("https://cloudflare-eth.com")
 	if err != nil {
 		log.Fatal(err)
@@ -24,12 +24,12 @@ func main3() {
 	}
 	fmt.Println("Balance:", balance) // 25893180161173005034
 
-	blockNumber := big.NewInt(5532993)
+	blockNumber := big.NewInt(5542993)
 	balanceAt, err := client.BalanceAt(context.Background(), account, blockNumber)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("Balance at block 5532993:", balanceAt) // 25729324269165216042
+	fmt.Println("Balance at block 5542993:", balanceAt) // 25729324269165216042
 
 	fbalance := new(big.Float)
 	fbalance.SetString(balanceAt.String())
@@ -37,5 +37,8 @@ func main3() {
 	fmt.Println("ETH Value:", ethValue) // 25.729324269165216041
 
 	pendingBalance, err := client.PendingBalanceAt(context.Background(), account)
+	if err != nil {
+		log.Fatal(err)
+	}
 	fmt.Println("Pending Balance:", pendingBalance) // 25729324269165216042
 }
