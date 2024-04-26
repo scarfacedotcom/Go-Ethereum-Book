@@ -10,7 +10,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
-func main() {
+func main01() {
 	re := regexp.MustCompile("^0x[0-9a-fA-F]{40}$")
 
 	fmt.Printf("is valid: %v\n", re.MatchString("0xe41d2489571d322189246dafabde1f4699f498"))
