@@ -46,26 +46,8 @@ If updating code examples:
 
 - make sure to update both the code in the markdown files as well as the code in the [code](code/) folder.
 
-If wanting to add a new translation, follow these instructions:
-
-1. Set up [development environment](#development)
-
-2. Add language to `LANGS.md`
-
-3. Copy the the `en` directory and rename it with the 2 letter language code of the language you're translating to (e.g. `zh`)
-
-4. Translate content
-
-5. Set `"root"` to `"./"` in `book.json` if not already set
-
-## Thanks
-
-Thanks to [@gzuhlwang](https://github.com/gzuhlwang) for the Chinese translation.
-
-And thanks to all the [contributors](https://github.com/miguelmota/ethereum-development-with-go-book/graphs/contributors) who have contributed to this guide book.
-
 ## License
 
 Released under the [CC0-1.0](./LICENSE) license.
 
-© [Miguel Mota](https://github.com/miguelmota)
+© [Adaaku Peter Jr](https://github.com/scarfacedotcom)
