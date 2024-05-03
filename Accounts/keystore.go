@@ -41,7 +41,7 @@ func importKs() {
 	}
 }
 
-func main() {
+func main779() {
 	createKs()
 	//importKs()
 }

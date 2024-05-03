@@ -10,7 +10,7 @@ import (
 	"golang.org/x/crypto/sha3"
 )
 
-func main() {
+func main77777() {
 	privateKey, err := crypto.GenerateKey()
 	if err != nil {
 		log.Fatal(err)
